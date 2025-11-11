@@ -6,7 +6,33 @@
     <title>STAY | Pharmacies de garde Abidjan et Intérieur du pays</title>
 
     <!--Shortcut ou FAVION-->
-  <link rel="shortcut icon" href="Images/shortcut icon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="Images/stay-removebg-preview.png" type="image/x-icon">
+
+  <!--Référencement-->
+    <!-- Balises SEO de base -->
+    <meta name="description" content="Retrouvez les pharmacies de garde à Abidjan et à l'intérieur du pays. Service fiable et à jour pour votre santé et votre sécurité.">
+    <meta name="keywords" content="pharmacie de garde, Abidjan, Côte d'Ivoire, santé, urgence, pharmacie, intérieur du pays, médicaments">
+    <meta name="author" content="STAY">
+    <meta property="og:title" content="STAY | Pharmacies de garde Abidjan et Intérieur du pays">
+    <meta property="og:description" content="Trouvez les pharmacies de garde à Abidjan et dans toute la Côte d'Ivoire.">
+    <meta property="og:image" content="https://stay.ci/Images/stay-removebg-preview.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stay.ci/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="STAY | Pharmacies de garde Abidjan et Intérieur du pays">
+    <meta name="twitter:description" content="Liste actualisée des pharmacies de garde à Abidjan et à l'intérieur du pays.">
+    <meta name="twitter:image" content="https://stay.ci/Images/stay-removebg-preview.png">
+
+    <!--Ogs-->
+    <!-- Balises Open Graph supplémentaires pour un meilleur partage social -->
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="STAY">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+
+    <!--Script n8n-->
+    <script src="[https://n8n-6rnt.onrender.com/webhook/c75b1792-8b83-4495-8fd5-7820d1c38f9f/chat]"></script>
 
     <!-- Roboto font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -28,7 +54,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold" href="#" >STAY</a>
+          <a class="navbar-brand" href="#" ><img src="Images/stay.jpg" class="img-fluid" width="100" height="100"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -106,6 +132,40 @@
 	createChat({
 		webhookUrl: 'https://n8n-6rnt.onrender.com/webhook/c75b1792-8b83-4495-8fd5-7820d1c38f9f/chat'
 	});
+
+    createChat ( { 
+	// Remplacez 'VOTRE_URL_WEBHOOK_ICI' par l'URL réelle de votre nœud Webhook n8n
+	webhookUrl : 'https://n8n-6rnt.onrender.com/webhook/c75b1792-8b83-4495-8fd5-7820d1c38f9f/chat' , 
+	webhookConfig : { 
+		method : 'POST' , 
+		headers : { } 
+	} , 
+	target : '#n8n-chat' , 
+	mode : 'window' , 
+	chatInputKey : 'chatInput' , 
+	chatSessionKey : 'sessionId' , 
+	loadPreviousSession : true , 
+	metadata : { } , 
+	showWelcomeScreen : false , 
+	defaultLanguage : 'fr' , // Changé à 'fr' pour correspondre aux textes
+	
+	// --- MESSAGE D'ACCUEIL MODIFIÉ ---
+	initialMessages : [ 
+		'Vous recherchez une pharmacie de garde ?' 
+	] , 
+	
+	// --- PERSONNALISATION DES TEXTES DE L'INTERFACE (en français) ---
+	i18n : { 
+		fr : { // Changé la clé 'en' à 'fr' pour l'affichage
+			title : 'Assistant Intelligent' , // Nouveau titre
+			subtitle : "Disponible 24H/7" , // Nouveau sous-titre
+			footer : 'Propulsé par Stay' , // Ajout d'un pied de page optionnel
+			getStarted : 'Nouvelle conversation' , 
+			inputPlaceholder : 'Tapez votre question ici...' , // Texte ajusté
+		} , 
+	} , 
+	enableStreaming : false , 
+} ) ;
 </script>
 
 
